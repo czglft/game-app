@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  game-app:
+    image: game-app:latest
+    ports:
+      - "8080:8080"
+    depends_on:
+      - couchbase
+    environment:
+      - COUCHBASE_HOST=couchbase
+      - COUCHBASE_PORT=8091
+
+  couchbase:
+    image: couchbase/server-sandbox:7.0.0
+    environment:
+      - COUCHBASE_ADMINISTRATOR_USERNAME=user
+      - COUCHBASE_ADMINISTRATOR_PASSWORD=password
+    ports:
+      - "8091:8091"
+      - "8092:8092"
+      - "8093:8093"
+      - "8094:8094"
+      - "8095:8095"
+      - "18091-18096:18091-18096"

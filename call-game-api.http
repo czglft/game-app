@@ -1,0 +1,10 @@
+# Set the base URL for your application
+@base_url = http://localhost:8080
+
+# Test endpoint with a non-existent ID (should return 404)
+GET {{base_url}}/get_client_config/nonexistent_id
+Accept: application/json
+
+# Test endpoint with a valid ID
+GET {{base_url}}/get_client_config/97983be2-98b7-11e7-90cf-082e5f28d836
+Accept: application/json
